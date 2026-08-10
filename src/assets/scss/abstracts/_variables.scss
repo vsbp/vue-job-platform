@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap');
+
+
+// ========================================
+// COLORS
+// ========================================
+
+// Brand
+$color-primary: #682F3C;
+$color-secondary: #526477;
+$color-accent: #D6B85A;
+
+// Background
+$color-background: #E9E1D3;
+$color-surface: #F7F3EA;
+$color-surface-light: #FFFCF8;
+
+// Typography
+$color-text: #241D20;
+$color-text-secondary: #746A6D;
+
+// Border
+$color-border: #D5C9B9;
+
+// States
+$color-primary-hover: #542631;
+$color-accent-hover: #B59A3E;
+
+
+// ========================================
+// TYPOGRAPHY
+// ========================================
+
+$font-heading: 'Manrope', sans-serif;
+$font-body: 'DM Sans', sans-serif;
+
+
+// ========================================
+// FONT WEIGHTS
+// ========================================
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+
+// ========================================
+// FONT SIZES
+// ========================================
+
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-md: 1rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.5rem;
+$font-size-2xl: 2rem;
+$font-size-3xl: 2.5rem;

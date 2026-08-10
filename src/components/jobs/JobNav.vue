@@ -1,27 +1,28 @@
 <template>
-    <section class="container py-4">
-        <div class="d-flex justify-content-between align-items-center">
-            <div>
-                <h2>Gestão de vagas</h2>
-            </div>
+    <nav class="job-nav" aria-label="Navegação de vagas">
+        <div class="job-nav__actions">
+            <a
+                href="/"
+                class="job-nav__button"
+            >
+                Início
+            </a>
 
-            <nav aria-label="Navegação de vagas">
-                <div class="d-flex gap-2">
-                    <a href="/" class="btn btn-outline-dark">
-                        Início
-                    </a>
+            <button
+                type="button"
+                class="job-nav__button"
+            >
+                Atualizar vagas
+            </button>
 
-                    <button type="button" class="btn btn-outline-dark">
-                        Atualizar vagas
-                    </button>
-
-                    <a href="/publicar-vaga" class="btn btn-primary">
-                        Publicar vaga
-                    </a>
-                </div>
-            </nav>
+            <a
+                href="/publicar-vaga"
+                class="job-nav__button job-nav__button--primary"
+            >
+                Publicar vaga
+            </a>
         </div>
-    </section>
+    </nav>
 </template>
 
 <script>

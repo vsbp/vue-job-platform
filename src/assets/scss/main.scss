@@ -1,7 +1,11 @@
-@use 'variables';
-@use 'mixins';
+@import './abstracts/variables';
+@import './abstracts/mixins';
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
+// header e footer
+@import './components/layout/AppHeader';
+
+// Jobs
+@import './components/jobs/JobNav';
+@import './components/jobs/JobSearch';
+@import './components/jobs/JobStats';
+@import './components/jobs/JobList';

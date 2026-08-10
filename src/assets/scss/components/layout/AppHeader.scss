@@ -1,0 +1,46 @@
+.header {
+    background-color: $color-primary;
+    font-family: $font-body;
+
+    &__nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 72px;
+        padding: 0 2rem;
+    }
+
+    &__logo {
+        color: $color-surface-light;
+        font-family: $font-heading;
+        font-size: $font-size-xl;
+        font-weight: $font-weight-bold;
+        text-decoration: none;
+    }
+
+    &__menu {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    &__link {
+        padding: 0.6rem 1rem;
+        border-radius: 8px;
+        color: $color-surface-light;
+        font-weight: $font-weight-medium;
+        text-decoration: none;
+        @include transition(background-color);
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        &--highlight {
+            background-color: $color-accent;
+            color: $color-text;
+            &:hover {
+                background-color: $color-accent-hover;
+            }
+        }
+    }
+}

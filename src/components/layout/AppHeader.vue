@@ -1,46 +1,30 @@
 <template>
-    <header class="navbar navbar-expand-lg bg-body-tertiary">
-        <nav class="container-fluid" aria-label="Navegação principal">
-            <a class="navbar-brand" href="/">
+    <header class="header">
+        <nav class="header__nav">
+
+            <a
+                class="header__logo"
+                href="/"
+            >
                 Vagas
             </a>
 
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Abrir menu de navegação"
-            >
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <div class="header__menu">
+                <a
+                    class="header__link"
+                    href="/login"
+                >
+                    Entrar
+                </a>
 
-            <div
-                class="collapse navbar-collapse"
-                id="navbarSupportedContent"
-            >
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a
-                            class="nav-link"
-                            href="/login"
-                        >
-                            Entrar
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a
-                            class="nav-link"
-                            href="/cadastro"
-                        >
-                            Cadastrar
-                        </a>
-                    </li>
-                </ul>
+                <a
+                    class="header__link header__link--highlight"
+                    href="/cadastro"
+                >
+                    Cadastrar
+                </a>
             </div>
+
         </nav>
     </header>
 </template>

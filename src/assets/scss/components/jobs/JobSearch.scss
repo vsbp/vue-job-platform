@@ -1,0 +1,77 @@
+.job-search {
+    width: 100%;
+    margin: 4rem auto;
+    padding: 2rem;
+    border: 1px solid $color-border;
+    border-radius: 12px;
+    background-color: $color-surface-light;
+    text-align: center;
+
+    h2 {
+        margin: 0 0 0.5rem;
+        color: $color-text;
+        font-family: $font-heading;
+        font-size: $font-size-xl;
+        font-weight: $font-weight-bold;
+    }
+
+    p {
+        margin: 0 0 1.5rem;
+        color: $color-text-secondary;
+        font-family: $font-body;
+        font-size: $font-size-md;
+        line-height: 1.6;
+    }
+}
+
+.search-input {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    &__field {
+        flex: 1;
+        min-width: 0;
+        padding: 0.75rem 1rem;
+        border: 1px solid $color-border;
+        border-radius: 8px;
+        background-color: $color-surface;
+        color: $color-text;
+        font-family: $font-body;
+        font-size: $font-size-md;
+        outline: none;
+        &::placeholder {
+            color: $color-text-secondary;
+        }
+        &:focus {
+            border-color: $color-primary;
+            box-shadow: 0 0 0 3px rgba(104, 47, 60, 0.12);
+        }
+    }
+
+    &__button {
+        flex-shrink: 0;
+        padding: 0.75rem 1.25rem;
+        border: 1px solid $color-primary;
+        border-radius: 8px;
+        background-color: $color-primary;
+        color: $color-surface-light;
+        font-family: $font-body;
+        font-size: $font-size-md;
+        font-weight: $font-weight-semibold;
+        cursor: pointer;
+        &:hover {
+            background-color: $color-primary-hover;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .search-input {
+        flex-direction: column;
+        &__field,
+        &__button {
+            width: 100%;
+        }
+    }
+}
