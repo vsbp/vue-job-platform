@@ -1,0 +1,109 @@
+{
+    "stats": {
+        "openJobs": 42,
+        "registeredProfessionals": 225,
+        "onlineVisitors": 25
+    },
+    "jobs": [
+        {
+            "id": 1,
+            "title": "Desenvolvedor Front-end",
+            "company": "Tech Solutions",
+            "location": "São Paulo, SP",
+            "workModel": "Híbrido",
+            "type": "CLT",
+            "level": "Pleno",
+            "salary": "R$ 7.000 - R$ 9.000"
+        },
+        {
+            "id": 2,
+            "title": "Desenvolvedor Back-end",
+            "company": "Digital Systems",
+            "location": "Remoto",
+            "workModel": "Remoto",
+            "type": "PJ",
+            "level": "Pleno",
+            "salary": "R$ 8.000 - R$ 10.000"
+        },
+        {
+            "id": 3,
+            "title": "Analista de Sistemas",
+            "company": "Global Tech",
+            "location": "Rio de Janeiro, RJ",
+            "workModel": "Presencial",
+            "type": "CLT",
+            "level": "Sênior",
+            "salary": "R$ 9.000 - R$ 12.000"
+        },
+        {
+            "id": 4,
+            "title": "Desenvolvedor Full Stack",
+            "company": "Nexa Digital",
+            "location": "Belo Horizonte, MG",
+            "workModel": "Híbrido",
+            "type": "CLT",
+            "level": "Pleno",
+            "salary": "R$ 8.000 - R$ 11.000"
+        },
+        {
+            "id": 5,
+            "title": "UX/UI Designer",
+            "company": "Creative Studio",
+            "location": "São Paulo, SP",
+            "workModel": "Remoto",
+            "type": "PJ",
+            "level": "Pleno",
+            "salary": "R$ 6.000 - R$ 8.000"
+        },
+        {
+            "id": 6,
+            "title": "Engenheiro de Software",
+            "company": "Cloud Systems",
+            "location": "Curitiba, PR",
+            "workModel": "Híbrido",
+            "type": "CLT",
+            "level": "Sênior",
+            "salary": "R$ 10.000 - R$ 14.000"
+        },
+        {
+            "id": 7,
+            "title": "Analista de Dados",
+            "company": "Data Insights",
+            "location": "Remoto",
+            "workModel": "Remoto",
+            "type": "CLT",
+            "level": "Júnior",
+            "salary": "R$ 4.500 - R$ 6.000"
+        },
+        {
+            "id": 8,
+            "title": "Desenvolvedor JavaScript",
+            "company": "Web Factory",
+            "location": "Porto Alegre, RS",
+            "workModel": "Presencial",
+            "type": "PJ",
+            "level": "Pleno",
+            "salary": "R$ 7.000 - R$ 9.500"
+        },
+        {
+            "id": 9,
+            "title": "Product Designer",
+            "company": "Innovation Labs",
+            "location": "São Paulo, SP",
+            "workModel": "Híbrido",
+            "type": "CLT",
+            "level": "Sênior",
+            "salary": "R$ 9.000 - R$ 13.000"
+        },
+        {
+            "id": 10,
+            "title": "Analista de Projetos",
+            "company": "Business Solutions",
+            "location": "Campinas, SP",
+            "workModel": "Híbrido",
+            "type": "CLT",
+            "level": "Pleno",
+            "salary": "R$ 6.500 - R$ 8.500"
+        }
+    ]
+}
