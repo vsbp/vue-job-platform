@@ -12,6 +12,7 @@ export const OPTIONAL_JOB_SCHEMA = {
     workModel: 'string',
     type: 'string',
     level: 'string',
-    salary: 'number'
+    salary: 'number',
+    contractType: 'string'
 }
 

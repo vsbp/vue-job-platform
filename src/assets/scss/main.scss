@@ -3,9 +3,22 @@
 
 // header e footer
 @import './components/layout/AppHeader';
+@import './components/layout/AppFooter';
 
 // Jobs
-@import './components/jobs/JobNav';
 @import './components/jobs/JobSearch';
+@import './components/jobs/JobFilters';
 @import './components/jobs/JobStats';
 @import './components/jobs/JobList';
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #F8FAFC;
+}
+
+.wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}

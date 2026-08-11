@@ -1,8 +1,8 @@
 <template>
     <section>
-        <JobNav />
-        <div class='container py-4'>
+        <div class="wrapper">
             <JobSearch v-model="searchTerm" />
+            <JobFilters :options="filterOptions" @update:filters="selectedFilters = $event" />
             <JobStats />
             <JobList :jobs="filteredJobs" />
         </div>
@@ -10,43 +10,79 @@
 </template>
 
 <script>
-    import JobNav from '../jobs/JobNav.vue'
     import JobSearch from '../jobs/JobSearch.vue'
+    import JobFilters from '../jobs/JobFilters.vue'
     import JobStats from '../jobs/JobStats.vue'
     import JobList from '../jobs/JobList.vue'
 
     import jobsData from '../mocks/mock.json'
     import { validateJobs } from '../utils/jobValidator'
 
+    function uniqueValues(jobs, extractor) {
+        return [...new Set(jobs.map(extractor).filter(Boolean))].sort()
+    }
+
+
     export default {
         name: 'HomeView',
         components: {
-            JobNav,
             JobSearch,
+            JobFilters,
             JobStats,
             JobList
         },
         data() {
+            const validated = validateJobs(jobsData.jobs)
+            console.log('Jobs validados:', validated.length, 'de', jobsData.jobs.length)
             return {
-                jobs: validateJobs(jobsData.jobs),
-                searchTerm: ''
+                jobs: validated,
+                searchTerm: '',
+                selectedFilters: {
+                    company: '',
+                    state: '',
+                    workModel: '',
+                    level: '',
+                    contractType: ''
+                }
             }
         },
         computed: {
+            filterOptions() {
+                return {
+                    companies: uniqueValues(this.jobs, (job) => job.company),
+                    states: uniqueValues(this.jobs, (job) => job.location?.split(',').pop()?.trim()),
+                    workModels: uniqueValues(this.jobs, (job) => job.workModel),
+                    levels: uniqueValues(this.jobs, (job) => job.level),
+                    contractTypes: uniqueValues(this.jobs, (job) => job.contractType)
+                }
+            },
+
             filteredJobs() {
                 const term = this.searchTerm.trim().toLowerCase()
-
-                if (!term) {
-                    return this.jobs
-                }
+                const { company, state, workModel, level, contractType } = this.selectedFilters
 
                 const searchableFields = ['title', 'company', 'location', 'workModel', 'level']
 
-                return this.jobs.filter((job) =>
-                    searchableFields.some((field) =>
+                return this.jobs.filter((job) => {
+                    const matchesSearch = !term || searchableFields.some((field) =>
                         job[field]?.toLowerCase().includes(term)
                     )
-                )
+
+                    const matchesCompany = !company || job.company === company
+                    const matchesState = !state || job.location?.endsWith(state)
+                    const matchesWorkModel = !workModel || job.workModel === workModel
+                    const matchesLevel = !level || job.level === level
+                    const matchesContractType = !contractType || job.contractType === contractType
+
+                    return (
+                        matchesSearch &&
+                        matchesCompany &&
+                        matchesState &&
+                        matchesWorkModel &&
+                        matchesLevel &&
+                        matchesContractType
+                    )
+                })
             }
         }
     }

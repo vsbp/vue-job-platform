@@ -1,11 +1,6 @@
 .job-search {
     width: 100%;
-    margin: 4rem auto;
-    padding: 2rem;
-    border: 1px solid $color-border;
-    border-radius: 12px;
-    background-color: $color-surface-light;
-    text-align: center;
+    margin: 2rem auto;
 
     h2 {
         margin: 0 0 0.5rem;
@@ -25,41 +20,72 @@
 }
 
 .search-input {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        min-height: 52px;
+        border: 1px solid $color-border;
+        border-radius: 40px;
+        background-color: $color-surface;
+        overflow: hidden;
+        padding: 0.625rem 1.25rem;
+
+        &:focus-within {
+            border-color: $color-primary;
+            box-shadow: none;
+        }
+    }
+
+    &__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-left: 1rem;
+        color: $color-text-secondary;
+
+        svg {
+            width: 25px;
+            height: 25px;
+        }
+    }
 
     &__field {
         flex: 1;
         min-width: 0;
         padding: 0.75rem 1rem;
-        border: 1px solid $color-border;
-        border-radius: 8px;
-        background-color: $color-surface;
+        border: none;
+        outline: none;
+        background-color: transparent;
         color: $color-text;
         font-family: $font-body;
         font-size: $font-size-md;
-        outline: none;
+
         &::placeholder {
             color: $color-text-secondary;
         }
-        &:focus {
-            border-color: $color-primary;
-            box-shadow: 0 0 0 3px rgba(104, 47, 60, 0.12);
+
+        &::-webkit-search-cancel-button {
+            appearance: none;
         }
     }
 
     &__button {
-        flex-shrink: 0;
-        padding: 0.75rem 1.25rem;
-        border: 1px solid $color-primary;
-        border-radius: 8px;
+        align-self: stretch;
+        margin: 4px;
+        padding: 0 1.5rem;
+        border: none;
+        border-radius: 6px;
         background-color: $color-primary;
         color: $color-surface-light;
         font-family: $font-body;
         font-size: $font-size-md;
         font-weight: $font-weight-semibold;
+        border-radius: 40px;
         cursor: pointer;
+        transition: background-color 0.2s ease;
+
         &:hover {
             background-color: $color-primary-hover;
         }
@@ -67,11 +93,19 @@
 }
 
 @media (max-width: 576px) {
-    .search-input {
-        flex-direction: column;
-        &__field,
-        &__button {
-            width: 100%;
-        }
+    .job-search {
+        padding: 1.25rem;
+    }
+
+    .search-input__wrapper {
+        min-height: 48px;
+    }
+
+    .search-input__button {
+        padding: 0 1rem;
+    }
+
+    .search-input__field {
+        padding: 0.75rem 0.5rem;
     }
 }
