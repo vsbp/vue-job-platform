@@ -18,6 +18,8 @@ O projeto tem como objetivo praticar componentização, organização de estilos
 ```text
 src/
 ├── assets/
+│   └── images
+│       ├── company/
 │   └── scss/
 │       ├── abstracts/
 │       │   ├── _variables.scss
@@ -34,6 +36,8 @@ src/
 │   └── jobs/
 │
 ├── mocks/
+│
+├── utils/
 │
 ├── views/
 │

@@ -1,18 +1,17 @@
 .header {
-    background-color: $color-primary;
     font-family: $font-body;
+    border: 1px solid $color-border;
+    padding: 1rem 19rem;
 
     &__nav {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        min-height: 72px;
-        padding: 0 2rem;
     }
 
     &__logo {
-        color: $color-surface-light;
-        font-family: $font-heading;
+        color: $color-primary;
+        font-family: $font-body;
         font-size: $font-size-xl;
         font-weight: $font-weight-bold;
         text-decoration: none;
@@ -27,16 +26,19 @@
     &__link {
         padding: 0.6rem 1rem;
         border-radius: 8px;
-        color: $color-surface-light;
+        color: $color-primary;
         font-weight: $font-weight-medium;
         text-decoration: none;
         @include transition(background-color);
         &:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            text-decoration: underline;
+            text-decoration-color: $color-secondary;
+            text-underline-offset: 6px;
+            text-decoration-thickness: 3px;
         }
 
         &--highlight {
-            background-color: $color-accent;
+            background-color: $color-secondary;
             color: $color-text;
             &:hover {
                 background-color: $color-accent-hover;

@@ -1,9 +1,11 @@
 <template>
-    <section class='container py-4'>
+    <section>
         <JobNav />
-        <JobSearch />
-        <JobStats />
-        <JobList :jobs="jobs" />
+        <div class='container py-4'>
+            <JobSearch v-model="searchTerm" />
+            <JobStats />
+            <JobList :jobs="filteredJobs" />
+        </div>
     </section>
 </template>
 
@@ -14,6 +16,7 @@
     import JobList from '../jobs/JobList.vue'
 
     import jobsData from '../mocks/mock.json'
+    import { validateJobs } from '../utils/jobValidator'
 
     export default {
         name: 'HomeView',
@@ -25,7 +28,25 @@
         },
         data() {
             return {
-                jobs: jobsData.jobs
+                jobs: validateJobs(jobsData.jobs),
+                searchTerm: ''
+            }
+        },
+        computed: {
+            filteredJobs() {
+                const term = this.searchTerm.trim().toLowerCase()
+
+                if (!term) {
+                    return this.jobs
+                }
+
+                const searchableFields = ['title', 'company', 'location', 'workModel', 'level']
+
+                return this.jobs.filter((job) =>
+                    searchableFields.some((field) =>
+                        job[field]?.toLowerCase().includes(term)
+                    )
+                )
             }
         }
     }

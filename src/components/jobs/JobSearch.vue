@@ -8,12 +8,14 @@
                 Digite o cargo desejado.
             </p>
 
-            <form class="search-input">
+            <form class="search-input" @submit.prevent>
                 <input
                     id="job-search"
                     type="search"
                     class="search-input__field"
                     placeholder="Ex: Desenvolvedor Front-end, Gerente de Projetos..."
+                    :value="modelValue"
+                    @input="$emit('update:modelValue', $event.target.value)"
                 >
 
                 <button
@@ -29,6 +31,15 @@
 
 <script>
     export default {
-        name: 'JobSearch'
+        name: 'JobSearch',
+
+        props: {
+            modelValue: {
+                type: String,
+                default: ''
+            }
+        },
+
+        emits: ['update:modelValue']
     }
 </script>

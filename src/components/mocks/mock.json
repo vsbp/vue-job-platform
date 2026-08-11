@@ -5,12 +5,13 @@
             "title": "Desenvolvedor Front-end",
             "description": "Estamos buscando um desenvolvedor Front-end para integrar nosso time e atuar no desenvolvimento de aplicações web.",
             "company": "Tech Solutions",
-            "companyLogo": "/images/companies/tech-solutions.webp",
+            "companyLogo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdHx7iUuJ5Xi1rDxLmTB2Rhlm_1QKkqskbGwy1LreXCmAlCt_u8aF-vTGf&s=10",
             "location": "São Paulo, SP",
             "workModel": "Remoto",
             "type": "Tempo integral",
             "level": "Pleno",
-            "salary": "R$ 7.000 - R$ 9.000",
+            "salaryMin": 7000,
+            "salaryMax": 9000,
             "publishedAt": "Hoje"
         },
         {
@@ -23,7 +24,8 @@
             "workModel": "Remoto",
             "type": "Tempo integral",
             "level": "Pleno",
-            "salary": "R$ 8.000 - R$ 10.000",
+            "salaryMin": 8000,
+            "salaryMax": 10000,
             "publishedAt": "Hoje"
         },
         {
@@ -36,7 +38,8 @@
             "workModel": "Presencial",
             "type": "Tempo integral",
             "level": "Sênior",
-            "salary": "R$ 9.000 - R$ 12.000",
+            "salaryMin": 9000,
+            "salaryMax": 12000,
             "publishedAt": "Ontem"
         },
         {
@@ -49,7 +52,8 @@
             "workModel": "Híbrido",
             "type": "Tempo integral",
             "level": "Pleno",
-            "salary": "R$ 8.000 - R$ 11.000",
+            "salaryMin": 8000,
+            "salaryMax": 11000,
             "publishedAt": "Há 2 dias"
         },
         {
@@ -62,7 +66,8 @@
             "workModel": "Remoto",
             "type": "Tempo integral",
             "level": "Pleno",
-            "salary": "R$ 6.000 - R$ 8.000",
+            "salaryMin": 6000,
+            "salaryMax": 8000,
             "publishedAt": "Há 2 dias"
         },
         {
@@ -75,7 +80,8 @@
             "workModel": "Híbrido",
             "type": "Tempo integral",
             "level": "Sênior",
-            "salary": "R$ 10.000 - R$ 14.000",
+            "salaryMin": 10000,
+            "salaryMax": 14000,
             "publishedAt": "Há 3 dias"
         },
         {
@@ -88,7 +94,8 @@
             "workModel": "Remoto",
             "type": "Tempo integral",
             "level": "Júnior",
-            "salary": "R$ 4.500 - R$ 6.000",
+            "salaryMin": 4500,
+            "salaryMax": 6000,
             "publishedAt": "Há 3 dias"
         },
         {
@@ -101,7 +108,8 @@
             "workModel": "Presencial",
             "type": "Tempo integral",
             "level": "Pleno",
-            "salary": "R$ 7.000 - R$ 9.500",
+            "salaryMin": 7000,
+            "salaryMax": 9500,
             "publishedAt": "Há 4 dias"
         },
         {
@@ -114,7 +122,8 @@
             "workModel": "Híbrido",
             "type": "Tempo integral",
             "level": "Sênior",
-            "salary": "R$ 9.000 - R$ 13.000",
+            "salaryMin": 9000,
+            "salaryMax": 13000,
             "publishedAt": "Há 5 dias"
         },
         {
@@ -127,7 +136,8 @@
             "workModel": "Híbrido",
             "type": "Tempo integral",
             "level": "Pleno",
-            "salary": "R$ 6.500 - R$ 8.500",
+            "salaryMin": 6500,
+            "salaryMax": 8500,
             "publishedAt": "Há 5 dias"
         }
     ]

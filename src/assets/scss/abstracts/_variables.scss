@@ -1,44 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap');
+// =====================================================
+// Fonts
+// =====================================================
+
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap');
 
 
-// ========================================
-// COLORS
-// ========================================
-
+// =====================================================
 // Brand
-$color-primary: #682F3C;
-$color-secondary: #526477;
-$color-accent: #D6B85A;
+// =====================================================
 
+$color-primary: #1E1B4B;
+$color-secondary: #FACC15;
+$color-accent: #371A00;
+
+
+// =====================================================
 // Background
-$color-background: #E9E1D3;
-$color-surface: #F7F3EA;
-$color-surface-light: #FFFCF8;
+// =====================================================
 
+$color-background: #F8FAFC;
+$color-surface: #FFFFFF;
+$color-surface-light: #F1F5F9;
+$color-border: #E0DDE5;
+
+// =====================================================
 // Typography
-$color-text: #241D20;
-$color-text-secondary: #746A6D;
+// =====================================================
 
-// Border
-$color-border: #D5C9B9;
+$color-text: #191C1D;
+$color-text-secondary: #64748B;
 
-// States
-$color-primary-hover: #542631;
-$color-accent-hover: #B59A3E;
-
-
-// ========================================
-// TYPOGRAPHY
-// ========================================
-
-$font-heading: 'Manrope', sans-serif;
-$font-body: 'DM Sans', sans-serif;
-
-
-// ========================================
-// FONT WEIGHTS
-// ========================================
+$font-body: 'Hanken Grotesk', sans-serif;
+$font-label: 'Hanken Grotesk', sans-serif;
 
 $font-weight-regular: 400;
 $font-weight-medium: 500;
@@ -46,14 +39,70 @@ $font-weight-semibold: 600;
 $font-weight-bold: 700;
 
 
-// ========================================
-// FONT SIZES
-// ========================================
+// =====================================================
+// Font Sizes
+// =====================================================
 
 $font-size-xs: 0.75rem;
 $font-size-sm: 0.875rem;
 $font-size-md: 1rem;
-$font-size-lg: 1.125rem;
+$font-size-lg: 1.25rem;
 $font-size-xl: 1.5rem;
 $font-size-2xl: 2rem;
 $font-size-3xl: 2.5rem;
+
+
+// =====================================================
+// Line Height
+// =====================================================
+
+$line-height-tight: 1.2;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.7;
+
+
+// =====================================================
+// Border
+// =====================================================
+
+$color-border: #E2E8F0;
+
+
+// =====================================================
+// States
+// =====================================================
+
+$color-primary-hover: #15133A;
+$color-accent-hover: #EAB308;
+
+
+// =====================================================
+// Border Radius
+// =====================================================
+
+$radius-sm: 6px;
+$radius-md: 10px;
+$radius-lg: 14px;
+$radius-full: 999px;
+
+
+// =====================================================
+// Spacing
+// =====================================================
+
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+$spacing-2xl: 3rem;
+$spacing-3xl: 4rem;
+
+
+// =====================================================
+// Shadows
+// =====================================================
+
+$shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+$shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+$shadow-lg: 0 10px 30px rgba(15, 23, 42, 0.12);
