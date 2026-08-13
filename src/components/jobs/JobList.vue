@@ -12,50 +12,56 @@
                 v-for='job in visibleJobs'
                 :key='job.id'
                 class='job-card'
+                role='button'
+                tabindex='0'
+                @click='goToJob(job.id)'
+                @keydown.enter='goToJob(job.id)'
             >
                 <div class='job-card__header'>
-                    <div class='job-card__company'>
-                        <figure class='job-card__image'>
-                            <img
-                                v-if='job.companyLogo'
-                                :src='job.companyLogo'
-                                :alt='`Logo da ${job.company}`'
-                                loading='lazy'
-                                decoding='async'
-                                @error='handleImageError'
-                            >
-                            <span v-else class='job-card__initial'>
-                                {{ companyInitial(job.company) }}
-                            </span>
-                        </figure>
+                    <figure class='job-card__image'>
+                        <img
+                            v-if='job.companyLogo'
+                            :src='job.companyLogo'
+                            :alt='`Logo da ${job.company}`'
+                            loading='lazy'
+                            decoding='async'
+                            @error='handleImageError'
+                        >
+                        <span v-else class='job-card__initial'>
+                            {{ companyInitial(job.company) }}
+                        </span>
+                    </figure>
+
+                    <div class='job-card__heading'>
+                        <h3 class='job-card__title'>
+                            {{ job.title }}
+                        </h3>
+                        <p class='job-card__company-name'>
+                            {{ job.company }}
+                        </p>
                     </div>
 
-                    <span
-                        v-if='job.badge'
-                        class='job-card__badge'
-                        :class='`job-card__badge--${badgeVariant(job.badge)}`'
-                    >
-                        <i :class='badgeIcon(job.badge)' aria-hidden='true'></i>
-                        {{ job.badge }}
-                    </span>
+                    <div class='job-card__header-actions'>
+                        <span
+                            v-if='job.badge'
+                            class='job-card__badge'
+                            :class='`job-card__badge--${badgeVariant(job.badge)}`'
+                        >
+                            <i :class='badgeIcon(job.badge)' aria-hidden='true'></i>
+                            {{ job.badge }}
+                        </span>
 
-                    <button
-                        type='button'
-                        class='job-card__save'
-                        :aria-label='`Salvar vaga de ${job.title}`'
-                        title='Salvar vaga'
-                    >
-                        <i class='bi bi-bookmark' aria-hidden='true'></i>
-                    </button>
+                        <button
+                            type='button'
+                            class='job-card__save'
+                            :aria-label='`Salvar vaga de ${job.title}`'
+                            title='Salvar vaga'
+                            @click.stop
+                        >
+                            <i class='bi bi-bookmark' aria-hidden='true'></i>
+                        </button>
+                    </div>
                 </div>
-
-                <h3 class='job-card__title'>
-                    {{ job.title }}
-                </h3>
-
-                <p class='job-card__company-name'>
-                    {{ job.company }}
-                </p>
 
                 <div class='job-card__meta'>
                     <span v-if='job.location' class='job-card__pill'>
@@ -74,15 +80,57 @@
                     </span>
                 </div>
 
-                <small class='job-card__published'>
-                    Publicado {{ job.publishedAt }}
-                </small>
+                <div class='job-card__footer'>
+                    <span
+                        class='job-card__salary'
+                        :class='{ "job-card__salary--muted": !hasSalary(job) }'
+                    >
+                        {{ formatSalary(job.salaryMin, job.salaryMax) }}
+                    </span>
+                    <small class='job-card__published'>
+                        Publicado {{ job.publishedAt }}
+                    </small>
+                </div>
             </article>
         </div>
 
-        <div v-if='hasMore' class='job-list__footer'>
-            <button type='button' class='job-list__load-more' @click='loadMore'>
-                Carregar Mais Vagas
+        <div v-if='totalPages > 1' class='job-list__pagination'>
+            <button
+                type='button'
+                class='job-list__page-btn'
+                :disabled='currentPage === 1'
+                @click='goToPage(currentPage - 1)'
+            >
+                <i class='bi bi-chevron-left' aria-hidden='true'></i>
+            </button>
+
+            <button
+                v-for='page in totalPages'
+                :key='page'
+                type='button'
+                class='job-list__page-btn'
+                :class='{ "job-list__page-btn--active": page === currentPage }'
+                @click='goToPage(page)'
+            >
+                {{ page }}
+            </button>
+
+            <button
+                type='button'
+                class='job-list__page-btn'
+                :disabled='currentPage === totalPages'
+                @click='goToPage(currentPage + 1)'
+            >
+                <i class='bi bi-chevron-right' aria-hidden='true'></i>
+            </button>
+
+            <button
+                v-if='currentPage > 1'
+                type='button'
+                class='job-list__see-less'
+                @click='goToPage(1)'
+            >
+                Ver menos
             </button>
         </div>
     </section>
@@ -90,7 +138,7 @@
 
 <script>
     import companyPlaceholder from '../../assets/images/company/placeholder.png'
-    const PAGE_SIZE = 3
+    const PAGE_SIZE = 9
 
     export default {
         name: 'JobList',
@@ -104,7 +152,7 @@
 
         data() {
             return {
-                visibleCount: PAGE_SIZE,
+                currentPage: 1,
                 companyPlaceholder
             }
         },
@@ -114,32 +162,41 @@
                 return this.jobs.length
             },
 
-            visibleJobs() {
-                return this.jobs.slice(0, this.visibleCount)
+            totalPages() {
+                return Math.max(1, Math.ceil(this.totalCount / PAGE_SIZE))
             },
 
-            hasMore() {
-                return this.visibleCount < this.totalCount
+            visibleJobs() {
+                const start = (this.currentPage - 1) * PAGE_SIZE
+                return this.jobs.slice(start, start + PAGE_SIZE)
             },
 
             rangeStart() {
-                return this.totalCount === 0 ? 0 : 1
+                return this.totalCount === 0 ? 0 : (this.currentPage - 1) * PAGE_SIZE + 1
             },
 
             rangeEnd() {
-                return Math.min(this.visibleCount, this.totalCount)
+                return Math.min(this.currentPage * PAGE_SIZE, this.totalCount)
             }
         },
 
         watch: {
             jobs() {
-                this.visibleCount = PAGE_SIZE
+                this.currentPage = 1
             }
         },
 
         methods: {
-            loadMore() {
-                this.visibleCount += PAGE_SIZE
+            goToPage(page) {
+                if (page < 1 || page > this.totalPages) {
+                    return
+                }
+                this.currentPage = page
+                this.$el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            },
+
+            goToJob(id) {
+                this.$router.push(`/vaga/${id}`)
             },
 
             companyInitial(company) {
@@ -165,8 +222,31 @@
                     presencial: 'bi bi-building'
                 }
                 return icons[model?.toLowerCase()] || 'bi bi-briefcase'
+            },
+
+            hasSalary(job) {
+                return Boolean(job.salaryMin || job.salaryMax)
+            },
+
+            formatSalary(min, max) {
+                const format = (value) =>
+                    new Intl.NumberFormat('pt-BR', {
+                        style: 'currency',
+                        currency: 'BRL',
+                        maximumFractionDigits: 0
+                    }).format(value)
+
+                if (min && max) {
+                    return `${format(min)} – ${format(max)}`
+                }
+                if (min) {
+                    return `A partir de ${format(min)}`
+                }
+                if (max) {
+                    return `Até ${format(max)}`
+                }
+                return 'Salário a combinar'
             }
         }
     }
 </script>
-

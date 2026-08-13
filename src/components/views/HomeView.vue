@@ -4,7 +4,14 @@
             <JobSearch v-model="searchTerm" />
             <JobFilters :options="filterOptions" @update:filters="selectedFilters = $event" />
             <JobStats />
-            <JobList :jobs="filteredJobs" />
+            
+            <div class="container-3-colunas">   
+                <JobList :jobs="filteredJobs" />
+                <div class="container-right-col">
+                    <ProfileProgress />
+                    <RecentActivity />
+                </div>
+            </div>     
         </div>
     </section>
 </template>
@@ -14,6 +21,9 @@
     import JobFilters from '../jobs/JobFilters.vue'
     import JobStats from '../jobs/JobStats.vue'
     import JobList from '../jobs/JobList.vue'
+
+    import ProfileProgress from '../profile/ProfileProgress.vue'
+    import RecentActivity from '../profile/RecentActivity.vue'
 
     import jobsData from '../mocks/mock.json'
     import { validateJobs } from '../utils/jobValidator'
@@ -29,7 +39,9 @@
             JobSearch,
             JobFilters,
             JobStats,
-            JobList
+            JobList,
+            ProfileProgress,
+            RecentActivity
         },
         data() {
             const validated = validateJobs(jobsData.jobs)
