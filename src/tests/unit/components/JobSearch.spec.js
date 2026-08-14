@@ -48,8 +48,6 @@ describe('JobSearch.vue - sanitizeSearchInput', () => {
 
         const emitted = wrapper.emitted('update:modelValue')
         expect(emitted).toBeTruthy()
-        // trimStart() mantém o espaço final de propósito, para não atrapalhar
-        // o usuário digitando a próxima palavra (ver comentário no componente)
         expect(emitted[emitted.length - 1][0]).toBe('bFront/b end ')
     })
 })

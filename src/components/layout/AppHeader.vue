@@ -2,7 +2,6 @@
     <header class='header'>
         <div class='header__wrapper'>
             <nav class='header__nav'>
-
                 <router-link to='/' class='header__logo'>
                     Logo
                 </router-link>
