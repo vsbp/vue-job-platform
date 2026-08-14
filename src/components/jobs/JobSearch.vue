@@ -23,7 +23,9 @@
                     class="search-input__field"
                     placeholder="Ex: Desenvolvedor Front-end, Gerente de Projetos..."
                     :value="modelValue"
-                    @input="$emit('update:modelValue', $event.target.value)"
+                    maxlength="80"
+                    autocomplete="off"
+                    @input="handleInput"
                 >
                 <button
                     class="search-input__button"
@@ -47,6 +49,25 @@
             }
         },
 
-        emits: ['update:modelValue']
+        emits: ['update:modelValue'],
+
+        methods: {
+            sanitizeSearchInput(value) {
+                return value
+                    .replace(/[<>]/g, '')
+                    .replace(/\s{2,}/g, ' ')
+                    .trimStart()
+            },
+
+            handleInput(event) {
+                const sanitized = this.sanitizeSearchInput(event.target.value)
+
+                if (sanitized !== event.target.value) {
+                    event.target.value = sanitized
+                }
+
+                this.$emit('update:modelValue', sanitized)
+            }
+        }
     }
 </script>

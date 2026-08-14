@@ -3,14 +3,13 @@
         <div class='header__wrapper'>
             <nav class='header__nav'>
 
-                <a href='#' class='header__logo'>
+                <router-link to='/' class='header__logo'>
                     Logo
-                </a>
+                </router-link>
 
                 <div class='header__menu'>
-                    <a href='#' class='header__link'>Home</a>
-                    <a href='#' class='header__link'>Atualizar Vagas</a>
-                    <a href='#' class='header__link'>Publicar Vaga</a>
+                    <router-link to='/' class='header__link'>Home</router-link>
+                    <router-link to='/publicar-vaga' class='header__link'>Publicar Vaga</router-link>
                 </div>
 
                 <div class='header__actions'>

@@ -3,54 +3,54 @@
         <div class='app-footer__content'>
             <div class='app-footer__top'>
                 <div class='app-footer__brand'>
-                    <span class='app-footer__logo'>JobList</span>
+                    <router-link to='/' class='app-footer__logo'>Logo</router-link>
                     <p class='app-footer__tagline'>
                         Conectando talentos às melhores oportunidades do mercado.
                     </p>
 
                     <div class='app-footer__social'>
-                        <a href='#' class='app-footer__social-link' aria-label='LinkedIn'>
+                        <router-link to='/' class='app-footer__social-link' aria-label='LinkedIn'>
                             <i class='bi bi-linkedin' aria-hidden='true'></i>
-                        </a>
-                        <a href='#' class='app-footer__social-link' aria-label='Instagram'>
+                        </router-link>
+                        <router-link to='/' class='app-footer__social-link' aria-label='Instagram'>
                             <i class='bi bi-instagram' aria-hidden='true'></i>
-                        </a>
-                        <a href='#' class='app-footer__social-link' aria-label='X (Twitter)'>
+                        </router-link>
+                        <router-link to='/' class='app-footer__social-link' aria-label='X (Twitter)'>
                             <i class='bi bi-twitter-x' aria-hidden='true'></i>
-                        </a>
-                        <a href='#' class='app-footer__social-link' aria-label='GitHub'>
+                        </router-link>
+                        <router-link to='/' class='app-footer__social-link' aria-label='GitHub'>
                             <i class='bi bi-github' aria-hidden='true'></i>
-                        </a>
+                        </router-link>
                     </div>
                 </div>
 
                 <nav class='app-footer__column'>
                     <h3 class='app-footer__heading'>Para Candidatos</h3>
                     <ul class='app-footer__list'>
-                        <li><a href='#'>Buscar vagas</a></li>
-                        <li><a href='#'>Criar currículo</a></li>
-                        <li><a href='#'>Alertas de vagas</a></li>
-                        <li><a href='#'>Dicas de carreira</a></li>
+                        <li><router-link to='/'>Buscar vagas</router-link></li>
+                        <li><router-link to='/'>Criar currículo</router-link></li>
+                        <li><router-link to='/'>Alertas de vagas</router-link></li>
+                        <li><router-link to='/'>Dicas de carreira</router-link></li>
                     </ul>
                 </nav>
 
                 <nav class='app-footer__column'>
                     <h3 class='app-footer__heading'>Para Empresas</h3>
                     <ul class='app-footer__list'>
-                        <li><a href='#'>Publicar vaga</a></li>
-                        <li><a href='#'>Planos e preços</a></li>
-                        <li><a href='#'>Banco de talentos</a></li>
-                        <li><a href='#'>Central de ajuda</a></li>
+                        <li><router-link to='/'>Publicar vaga</router-link></li>
+                        <li><router-link to='/'>Planos e preços</router-link></li>
+                        <li><router-link to='/'>Banco de talentos</router-link></li>
+                        <li><router-link to='/'>Central de ajuda</router-link></li>
                     </ul>
                 </nav>
 
                 <nav class='app-footer__column'>
                     <h3 class='app-footer__heading'>Empresa</h3>
                     <ul class='app-footer__list'>
-                        <li><a href='#'>Sobre nós</a></li>
-                        <li><a href='#'>Contato</a></li>
-                        <li><a href='#'>Termos de uso</a></li>
-                        <li><a href='#'>Privacidade</a></li>
+                        <li><router-link to='/'>Sobre nós</router-link></li>
+                        <li><router-link to='/'>Contato</router-link></li>
+                        <li><router-link to='/'>Termos de uso</router-link></li>
+                        <li><router-link to='/'>Privacidade</router-link></li>
                     </ul>
                 </nav>
             </div>

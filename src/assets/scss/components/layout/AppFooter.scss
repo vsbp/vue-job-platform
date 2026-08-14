@@ -1,7 +1,7 @@
 .app-footer {
     margin-top: 3rem;
     padding: 3rem 1.5rem 1.5rem;
-    background: linear-gradient(135deg, #1c2b5c 0%, #0d1530 100%);
+    background: #000;
     color: rgba(255, 255, 255, 0.85);
 
     &__content {
@@ -24,6 +24,7 @@
         font-family: $font-body;
         font-size: 1.375rem;
         font-weight: $font-weight-bold;
+        text-decoration: none;
     }
 
     &__tagline {

@@ -54,11 +54,12 @@
                         <button
                             type='button'
                             class='job-card__save'
+                            :class='{ "job-card__save--saved": isJobSaved(job.id) }'
                             :aria-label='`Salvar vaga de ${job.title}`'
                             title='Salvar vaga'
-                            @click.stop
+                            @click.stop='toggleSave(job.id)'
                         >
-                            <i class='bi bi-bookmark' aria-hidden='true'></i>
+                            <i class='bi bi-bookmark' :class='{ "bi-bookmark-fill": isJobSaved(job.id) }' aria-hidden='true'></i>
                         </button>
                     </div>
                 </div>
@@ -124,14 +125,14 @@
                 <i class='bi bi-chevron-right' aria-hidden='true'></i>
             </button>
 
-            <button
+            <!-- <button
                 v-if='currentPage > 1'
                 type='button'
                 class='job-list__see-less'
                 @click='goToPage(1)'
             >
                 Ver menos
-            </button>
+            </button> -->
         </div>
     </section>
 </template>
@@ -153,7 +154,8 @@
         data() {
             return {
                 currentPage: 1,
-                companyPlaceholder
+                companyPlaceholder,
+                savedJobIds: JSON.parse(localStorage.getItem('savedJobIds') || '[]')
             }
         },
 
@@ -246,6 +248,17 @@
                     return `Até ${format(max)}`
                 }
                 return 'Salário a combinar'
+            },
+            
+            isJobSaved(id) {
+                return this.savedJobIds.includes(id)
+            },
+
+            toggleSave(id) {
+                const ids = new Set(this.savedJobIds)
+                ids.has(id) ? ids.delete(id) : ids.add(id)
+                this.savedJobIds = Array.from(ids)
+                localStorage.setItem('savedJobIds', JSON.stringify(this.savedJobIds))
             }
         }
     }

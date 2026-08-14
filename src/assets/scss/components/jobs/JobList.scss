@@ -9,6 +9,7 @@
         margin-bottom: 1.25rem;
         padding-bottom: 0.75rem;
         border-bottom: 1px solid $color-border;
+        margin-right: 3rem;
     }
 
     &__title {
@@ -56,6 +57,25 @@
         &:hover {
             background-color: rgba(104, 47, 60, 0.06);
             border-color: $color-primary;
+        }
+    }
+
+    &__pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 3rem;
+    }
+    &__page-btn {
+        background: #fff;
+        border: 1px solid #E2E8F0;
+        border-radius: 8px;
+        padding: 0.5rem 1rem;
+        margin: 0 0.2rem;
+        font-family: "Hanken Grotesk", sans-serif;
+        font-size: 0.875rem;
+        font-weight: 600;
+        &--active {
+            border: 1px solid #000;
         }
     }
 }
@@ -174,9 +194,9 @@
             background-color 0.2s ease,
             color 0.2s ease;
 
-        &:hover {
-            background-color: rgba(104, 47, 60, 0.08);
-            color: $color-primary;
+            &--saved {
+            background-color: #000;
+            color: #fff;
         }
     }
 
@@ -225,6 +245,7 @@
         font-family: $font-body;
         font-size: $font-size-xs;
     }
+
 }
 
 @media (max-width: 992px) {

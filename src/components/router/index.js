@@ -6,13 +6,13 @@ import JobDetail from '../jobs/JobDetail.vue'
 const routes = [
     {
         path: '/',
-        name: 'home',
-        component: HomeView
+        name: 'HomeView',
+        component: HomeView,
     },
     {
         path: '/publicar-vaga',
-        name: 'publish-job',
-        component: PublishJob
+        name: 'PublishJob',
+        component: PublishJob,
     },
     {
         path: '/vaga/:id',
