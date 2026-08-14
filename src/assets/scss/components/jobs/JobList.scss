@@ -1,0 +1,271 @@
+.job-list {
+    width: 100%;
+    margin: 2rem 0;
+
+    &__header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        margin-bottom: 1.25rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid $color-border;
+        margin-right: 3rem;
+    }
+
+    &__title {
+        margin: 0;
+        color: $color-text;
+        font-family: $font-body;
+        font-size: 1.375rem;
+        font-weight: $font-weight-bold;
+    }
+
+    &__count {
+        color: $color-text-secondary;
+        font-family: $font-body;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-medium;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        margin-right: 3rem;
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+
+    &__load-more {
+        padding: 0.65rem 1.75rem;
+        border: 1px solid $color-border;
+        border-radius: 999px;
+        background-color: $color-surface-light;
+        color: $color-text;
+        font-family: $font-body;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-semibold;
+        cursor: pointer;
+        transition:
+            background-color 0.2s ease,
+            border-color 0.2s ease;
+
+        &:hover {
+            background-color: rgba(104, 47, 60, 0.06);
+            border-color: $color-primary;
+        }
+    }
+
+    &__pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 3rem;
+    }
+    &__page-btn {
+        background: #fff;
+        border: 1px solid #E2E8F0;
+        border-radius: 8px;
+        padding: 0.5rem 1rem;
+        margin: 0 0.2rem;
+        font-family: "Hanken Grotesk", sans-serif;
+        font-size: 0.875rem;
+        font-weight: 600;
+        &--active {
+            border: 1px solid #000;
+        }
+    }
+}
+
+.job-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem;
+    border: 1px solid $color-border;
+    border-radius: 16px;
+    color: $color-text;
+
+    &__header {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid $color-border;
+    }
+
+    &__image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 44px;
+        height: 44px;
+        margin: 0;
+        overflow: hidden;
+        border-radius: 50%;
+        background-color: rgba(104, 47, 60, 0.1);
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__initial {
+        color: $color-primary;
+        font-family: $font-body;
+        font-size: 1.1rem;
+        font-weight: $font-weight-bold;
+    }
+
+    &__heading {
+        flex: 1;
+        min-width: 0;
+    }
+
+    &__title {
+        margin: 0;
+        color: $color-text;
+        font-family: $font-body;
+        font-size: $font-size-md;
+        font-weight: $font-weight-semibold;
+    }
+
+    &__company-name {
+        margin: 0.25rem 0 0;
+        color: $color-text-secondary;
+        font-family: $font-body;
+        font-size: $font-size-sm;
+    }
+
+    &__header-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.375rem;
+        flex-shrink: 0;
+    }
+
+    &__badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        padding: 0.3rem 0.7rem;
+        border-radius: 999px;
+        font-family: $font-body;
+        font-size: $font-size-xs;
+        font-weight: $font-weight-semibold;
+        white-space: nowrap;
+
+        &--new {
+            background-color: rgba(59, 91, 253, 0.12);
+            color: #3b5bfd;
+        }
+
+        &--urgent {
+            background-color: rgba(255, 76, 76, 0.12);
+            color: #e63946;
+        }
+    }
+
+    &__save {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 36px;
+        height: 36px;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background-color: transparent;
+        color: $color-text-secondary;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition:
+            background-color 0.2s ease,
+            color 0.2s ease;
+
+            &--saved {
+            background-color: #000;
+            color: #fff;
+        }
+    }
+
+    &__meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    &__pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.35rem 0.7rem;
+        border-radius: 999px;
+        background-color: rgba(104, 47, 60, 0.06);
+        color: $color-text;
+        font-family: $font-body;
+        font-size: $font-size-xs;
+        font-weight: $font-weight-medium;
+        white-space: nowrap;
+    }
+
+    &__footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+
+    &__salary {
+        font-family: $font-body;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-semibold;
+        color: #0f6e56;
+
+        &--muted {
+            color: $color-text-secondary;
+            font-weight: $font-weight-medium;
+        }
+    }
+
+    &__published {
+        color: $color-text-secondary;
+        font-family: $font-body;
+        font-size: $font-size-xs;
+    }
+
+}
+
+@media (max-width: 992px) {
+    .job-list {
+        &__grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .job-list {
+        &__header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.25rem;
+        }
+
+        &__grid {
+            grid-template-columns: 1fr;
+        }
+    }
+}

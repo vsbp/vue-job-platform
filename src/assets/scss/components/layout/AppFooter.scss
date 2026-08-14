@@ -1,0 +1,122 @@
+.app-footer {
+    margin-top: 3rem;
+    padding: 3rem 1.5rem 1.5rem;
+    background: #000;
+    color: rgba(255, 255, 255, 0.85);
+
+    &__content {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    &__top {
+        display: grid;
+        grid-template-columns: 1.5fr repeat(3, 1fr);
+        gap: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    &__logo {
+        display: inline-block;
+        margin-bottom: 0.75rem;
+        color: $color-surface-light;
+        font-family: $font-body;
+        font-size: 1.375rem;
+        font-weight: $font-weight-bold;
+        text-decoration: none;
+    }
+
+    &__tagline {
+        max-width: 260px;
+        margin: 0 0 1.25rem;
+        color: rgba(255, 255, 255, 0.65);
+        font-family: $font-body;
+        font-size: $font-size-sm;
+        line-height: 1.6;
+    }
+
+    &__social {
+        display: flex;
+        gap: 0.75rem;
+    }
+
+    &__social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: $color-surface-light;
+        font-size: 1rem;
+        text-decoration: none;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    }
+
+    &__heading {
+        margin: 0 0 1rem;
+        color: $color-surface-light;
+        font-family: $font-body;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-semibold;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.65rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        a {
+            color: rgba(255, 255, 255, 0.65);
+            font-family: $font-body;
+            font-size: $font-size-sm;
+            text-decoration: none;
+            transition: color 0.2s ease;
+
+            &:hover {
+                color: $color-surface-light;
+            }
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        justify-content: center;
+        padding-top: 1.5rem;
+    }
+
+    &__copy {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.55);
+        font-family: $font-body;
+        font-size: $font-size-xs;
+        text-align: center;
+    }
+}
+
+@media (max-width: 900px) {
+    .app-footer__top {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .app-footer__brand {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 560px) {
+    .app-footer__top {
+        grid-template-columns: 1fr;
+    }
+}
