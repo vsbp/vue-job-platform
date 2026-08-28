@@ -25,7 +25,7 @@
                             type='button'
                             class='header__avatar'
                             aria-label='Minha conta'
-                            @click='isAccountOpen = !isAccountOpen'
+                            @click='handleAvatarClick'
                         >
                             <img
                                 v-if='avatarUrl'
@@ -47,7 +47,11 @@
                                 Configurações
                             </a>
                             <hr class='header__account-divider'>
-                            <a href='#' class='header__account-item header__account-item--danger'>
+                            <a
+                                href='#'
+                                class='header__account-item header__account-item--danger'
+                                @click.prevent='handleLogout'
+                            >
                                 <i class='bi bi-box-arrow-right' aria-hidden='true'></i>
                                 Sair
                             </a>
@@ -61,6 +65,8 @@
 </template>
 
 <script>
+    const AUTH_KEY = 'currentUser'
+
     export default {
         name: 'AppHeader',
 
@@ -73,11 +79,41 @@
 
         data() {
             return {
-                isAccountOpen: false
+                isAccountOpen: false,
+                isLoggedIn: false
             }
         },
 
+        watch: {
+            '$route'() {
+                this.checkLoginStatus()
+            }
+        },
+
+        created() {
+            this.checkLoginStatus()
+        },
+
         methods: {
+            checkLoginStatus() {
+                this.isLoggedIn = Boolean(localStorage.getItem(AUTH_KEY))
+            },
+
+            handleAvatarClick() {
+                if (!this.isLoggedIn) {
+                    this.$router.push('/login')
+                    return
+                }
+                this.isAccountOpen = !this.isAccountOpen
+            },
+
+            handleLogout() {
+                localStorage.removeItem(AUTH_KEY)
+                this.isLoggedIn = false
+                this.isAccountOpen = false
+                this.$router.push('/login')
+            },
+
             closeAccountMenu() {
                 this.isAccountOpen = false
             }

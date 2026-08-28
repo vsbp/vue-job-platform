@@ -1,18 +1,18 @@
 @import './abstracts/variables';
 @import './abstracts/mixins';
 
-// header e footer
 @import './components/layout/AppHeader';
 @import './components/layout/AppFooter';
 
-// Jobs
+@import './components/login/login.scss';
+@import './components/login/register.scss';
+
 @import './components/jobs/JobSearch';
 @import './components/jobs/JobFilters';
 @import './components/jobs/JobStats';
 @import './components/jobs/JobList';
 @import './components/jobs/JobDetail';
 
-//profile
 @import 'components/profile/ProfileProgress';
 @import 'components/profile/RecentActivity';
 
