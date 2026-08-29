@@ -5,6 +5,7 @@ import Register from '../login/Register.vue'
 
 import HomeView from '../views/HomeView.vue'
 import PublishJob from '../views/PublishJob.vue'
+import CompaniesView from '../company/CompaniesView.vue'
 import JobDetail from '../jobs/JobDetail.vue'
 
 const routes = [
@@ -27,6 +28,11 @@ const routes = [
         path: '/publicar-vaga',
         name: 'PublishJob',
         component: PublishJob,
+    },
+    {
+        path: '/empresas',
+        name: 'CompaniesView',
+        component: CompaniesView,
     },
     {
         path: '/vaga/:id',
