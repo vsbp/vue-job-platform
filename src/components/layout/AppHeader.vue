@@ -9,6 +9,7 @@
                 <div class='header__menu'>
                     <router-link to='/' class='header__link'>Home</router-link>
                     <router-link to='/publicar-vaga' class='header__link'>Publicar Vaga</router-link>
+                    <router-link to='/empresas' class='header__link'>Empresas</router-link>
                 </div>
 
                 <div class='header__actions'>

@@ -1,29 +1,17 @@
 <template>
     <section>
-        <div class="wrapper">
-            <JobSearch v-model="searchTerm" />
-            <JobFilters :options="filterOptions" @update:filters="selectedFilters = $event" />
-            <JobStats />
-            
-            <div class="container-3-colunas">   
-                <JobList :jobs="filteredJobs" />
-                <div class="container-right-col">
-                    <ProfileProgress />
-                    <RecentActivity />
-                </div>
-            </div>     
+        <div class='wrapper-companies'>
+            <CompanySearch />
+            <CompanyList :companies='filteredJobs' /> 
+
         </div>
+
     </section>
 </template>
 
 <script>
-    import JobSearch from '../jobs/JobSearch.vue'
-    import JobFilters from '../jobs/JobFilters.vue'
-    import JobStats from '../jobs/JobStats.vue'
-    import JobList from '../jobs/JobList.vue'
-
-    import ProfileProgress from '../profile/ProfileProgress.vue'
-    import RecentActivity from '../profile/RecentActivity.vue'
+    import CompanySearch from './CompanySearch.vue';
+    import CompanyList from './CompanyList.vue';
 
     import jobsData from '../mocks/mock.json'
     import { validateJobs } from '../utils/jobValidator'
@@ -32,19 +20,15 @@
         return [...new Set(jobs.map(extractor).filter(Boolean))].sort()
     }
 
-
     export default {
-        name: 'HomeView',
+        name: 'CompanyView',
         components: {
-            JobSearch,
-            JobFilters,
-            JobStats,
-            JobList,
-            ProfileProgress,
-            RecentActivity
+            CompanySearch,
+            CompanyList,
         },
         data() {
             const validated = validateJobs(jobsData.jobs)
+            console.log('Jobs validados:', validated.length, 'de', jobsData.jobs.length)
             return {
                 jobs: validated,
                 searchTerm: '',
@@ -96,5 +80,7 @@
                 })
             }
         }
+
     }
+    
 </script>

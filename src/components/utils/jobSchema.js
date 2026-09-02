@@ -4,7 +4,8 @@ export const REQUIRED_JOB_SCHEMA = {
     description: 'string',
     company: 'string',
     location: 'string',
-    publishedAt: 'string'
+    publishedAt: 'string',
+    sector: 'string'
 }
 
 export const OPTIONAL_JOB_SCHEMA = {
