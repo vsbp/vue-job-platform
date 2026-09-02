@@ -1,0 +1,112 @@
+.company-search {
+    width: 100%; 
+    margin: 2rem auto;
+
+    article {
+        margin-bottom: 1.5rem;
+
+        h2 {
+            margin: 0 0 0.6rem;
+            color: $color-text;
+            font-family: $font-body;
+            font-size: 2rem;
+            font-weight: $font-weight-bold;
+            letter-spacing: -0.01em;
+        }
+
+        p {
+            margin: 0;
+            max-width: 560px;
+            color: $color-text-secondary;
+            font-family: $font-body;
+            font-size: $font-size-sm;
+            line-height: 1.6;
+        }
+    }
+}
+
+.company-search-input {
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.35rem 0.35rem 0.35rem 1.25rem;
+        border: 1px solid $color-border;
+        border-radius: 999px;
+        background-color: $color-surface;
+
+        @include transition(border-color);
+
+        &:focus-within {
+            border-color: $color-primary;
+        }
+    }
+
+    &__icon {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+        color: $color-text-secondary;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    &__field {
+        flex: 1;
+        min-width: 0;
+        padding: 0.7rem 0;
+        border: none;
+        background: transparent;
+        color: $color-text;
+        font-family: $font-body;
+        font-size: $font-size-sm;
+
+        &::placeholder {
+            color: $color-text-secondary;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &::-webkit-search-cancel-button {
+            -webkit-appearance: none;
+        }
+    }
+
+    &__button {
+        flex-shrink: 0;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 999px;
+        background-color: $color-primary;
+        color: $color-text-light;
+        font-family: $font-body;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-bold;
+        cursor: pointer;
+
+        @include transition(background-color);
+
+        &:hover {
+            background-color: $color-primary-hover;
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .company-search {
+        article h2 {
+            font-size: 1.5rem;
+        }
+    }
+
+    .company-search-input {
+        &__wrapper {
+            max-width: 100%;
+        }
+    }
+}

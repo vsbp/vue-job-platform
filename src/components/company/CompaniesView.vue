@@ -1,12 +1,85 @@
 <template>
     <section>
-        <h1>company view</h1>
+        <div class='wrapper-companies'>
+            <CompanySearch />
+            <CompanyList :companies='filteredJobs' /> 
+
+        </div>
+
     </section>
 </template>
 
 <script>
+    import CompanySearch from './CompanySearch.vue';
+    import CompanyList from './CompanyList.vue';
+
+    import jobsData from '../mocks/mock.json'
+    import { validateJobs } from '../utils/jobValidator'
+
+    function uniqueValues(jobs, extractor) {
+        return [...new Set(jobs.map(extractor).filter(Boolean))].sort()
+    }
+
     export default {
         name: 'CompanyView',
+        components: {
+            CompanySearch,
+            CompanyList,
+        },
+        data() {
+            const validated = validateJobs(jobsData.jobs)
+            console.log('Jobs validados:', validated.length, 'de', jobsData.jobs.length)
+            return {
+                jobs: validated,
+                searchTerm: '',
+                selectedFilters: {
+                    company: '',
+                    state: '',
+                    workModel: '',
+                    level: '',
+                    contractType: ''
+                }
+            }
+        },
+        computed: {
+            filterOptions() {
+                return {
+                    companies: uniqueValues(this.jobs, (job) => job.company),
+                    states: uniqueValues(this.jobs, (job) => job.location?.split(',').pop()?.trim()),
+                    workModels: uniqueValues(this.jobs, (job) => job.workModel),
+                    levels: uniqueValues(this.jobs, (job) => job.level),
+                    contractTypes: uniqueValues(this.jobs, (job) => job.contractType)
+                }
+            },
+
+            filteredJobs() {
+                const term = this.searchTerm.trim().toLowerCase()
+                const { company, state, workModel, level, contractType } = this.selectedFilters
+
+                const searchableFields = ['title', 'company', 'location', 'workModel', 'level']
+
+                return this.jobs.filter((job) => {
+                    const matchesSearch = !term || searchableFields.some((field) =>
+                        job[field]?.toLowerCase().includes(term)
+                    )
+
+                    const matchesCompany = !company || job.company === company
+                    const matchesState = !state || job.location?.endsWith(state)
+                    const matchesWorkModel = !workModel || job.workModel === workModel
+                    const matchesLevel = !level || job.level === level
+                    const matchesContractType = !contractType || job.contractType === contractType
+
+                    return (
+                        matchesSearch &&
+                        matchesCompany &&
+                        matchesState &&
+                        matchesWorkModel &&
+                        matchesLevel &&
+                        matchesContractType
+                    )
+                })
+            }
+        }
 
     }
     

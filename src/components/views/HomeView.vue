@@ -45,7 +45,6 @@
         },
         data() {
             const validated = validateJobs(jobsData.jobs)
-            console.log('Jobs validados:', validated.length, 'de', jobsData.jobs.length)
             return {
                 jobs: validated,
                 searchTerm: '',
